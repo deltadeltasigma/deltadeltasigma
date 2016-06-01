@@ -43,52 +43,60 @@ function mobile() {
 }
 
 function events() {
-	var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-	var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	var events = [
-		// [ {EVENT_NAME} , {EVENT TYPE} ,
+		// [ {EVENT_NAME} , {"open" OR "closed" OR "volunteer"} ,
 		//		{DATE} , {TIME} , {LOCATION_LINK} , {LOCATION_NAME} ,
 		//		{DESCRIPTION} ];
-		["University of Washington School of Dentistry: Sue Coldwell's Admission Talk",
+		["University of Washington School of Dentistry: Sue Coldwell's Admission Talk", "closed",
 			"04/27/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
 			""],
-		["Admissions Overview from Accepted Students",
+		["Admissions Overview from Accepted Students", "closed",
 			"05/04/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
 			""],
-		["University of Pacific: Visit from Director of Admissions",
+		["University of Pacific: Visit from Director of Admissions", "closed",
 			"05/11/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
 			""],
-		["Elections and Gold Member Recognition",
+		["Elections and Gold Member Recognition", "closed",
 			"05/18/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
 			""],
-	];
-	events.sort(function(a, b) {
-		if(a[1] === b[1]) return 0;
-		else return (a[1] > b[1]) ? -1 : 1;
-	});
-	for(var i = 0; i < events.length; i++) {
-		if(new Date(events[i][1]) > new Date()) {
-			$('#events #upcoming').append('<h2>' + events[i][0] + '</h2><h3>' + days[new Date(events[i][1]).getDay()] + ', ' + months[new Date(events[i][1]).getMonth()] + ' ' + new Date(events[i][1]).getDate() + ', from ' + events[i][2] + ' at <a href="' + events[i][4] + '" target="_blank">' + events[i][3] + '</a></h3>');
-			if(events[i][5] != "") $('#events #upcoming').append('<h3>' + events[i][5] + '</h3>');
-		}
-	}
-	var volunteer = [
-		// [ {EVENT_NAME} ,
-		//		{DATE} , {TIME} , {LOCATION_LINK} , {LOCATION_NAME} ,
-		//		{DESCRIPTION} ];
-		["Friday Feasts with ROOTS",
+		["Friday Feasts with ROOTS", "volunteer",
 			"04/29/2016", "4:30-7:00 PM", "1415 NE 43RD ST SEATTLE (ALLEY ENTRANCE) BY MOD PIZZA", "https://www.google.com/maps/place/1415+NE+43rd+St,+Seattle,+WA+98105/@47.6592479,-122.3145446,17z/data=!3m1!4b1!4m2!3m1!1s0x5490148b4f6b6617:0xd9007ef2253841c8",
 			""],
-		["Friday Feasts with ROOTS",
+		["Friday Feasts with ROOTS", "volunteer",
 			"05/06/2016", "4:30-7:00 PM", "1415 NE 43RD ST SEATTLE (ALLEY ENTRANCE) BY MOD PIZZA", "https://www.google.com/maps/place/1415+NE+43rd+St,+Seattle,+WA+98105/@47.6592479,-122.3145446,17z/data=!3m1!4b1!4m2!3m1!1s0x5490148b4f6b6617:0xd9007ef2253841c8",
 			""],
-		["Relay for Life Fundraiser: Molar Bearz",
-			"05/21/2016", "", "", "",
+		["Relay for Life Fundraiser: Molar Bearz", "volunteer",
+			"05/21/2016", "", "TBD", "",
+			""],
+		["This Is An Open Event", "open",
+			"07/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
+			""],
+		["This Is A Closed Event", "closed",
+			"07/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
+			""],
+		["This Is A Volunteer Event", "volunteer",
+			"07/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
 			""],
 	];
-
-	if($('#events #upcoming').html() === "") $('#events #upcoming').html("<h3>No upcoming events</h3>");
-	if($('#events #volunteer').html() === "") $('#events #volunteer').html("<h3>No upcoming volunteer opportunities</h3>");
+	var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	events.sort(function(a, b) {
+		if(a[2] == b[2]) return 0;
+		else return (a[2] > b[2]) ? -1 : 1;
+	});
+	for(var i = 0; i < events.length; i++) {
+		if((events[i][1] == "open" || events[i][1] == "closed") && (new Date(events[i][2]) >= new Date() - 24 * 60 * 60 * 1000)) var section = "upcoming";
+		else if(events[i][1] == "volunteer" && (new Date(events[i][2]) >= new Date() - 24 * 60 * 60 * 1000)) var section = "volunteer";
+		else var section = "past";
+		if(events[i][1] == "open") var icon = "accessibility";
+		else if(events[i][1] == "closed") var icon = "lock";
+		else if(events[i][1] == "volunteer") var icon = "account_balance";
+		$('#events #' + section).append('<h2 title="This is a ' + events[i][1] + ' event">' + events[i][0] + '<i class="material-icons">' + icon + '</i>' + '</h2><h3>' + days[new Date(events[i][2]).getDay()] + ', ' + months[new Date(events[i][2]).getMonth()] + ' ' + new Date(events[i][2]).getDate() + ', from ' + events[i][3] + ' at <a href="' + events[i][5] + '" target="_blank">' + events[i][4] + '</a></h3>');
+		if(events[i][5] != "") $('#events #' + section).append('<h3>' + events[i][6] + '</h3>');
+	}
+	if($('#events #upcoming').html() == "") $('#events #upcoming').html("<h3>No upcoming events</h3>");
+	if($('#events #volunteer').html() == "") $('#events #volunteer').html("<h3>No upcoming volunteer opportunities</h3>");
+	if($('#events #past').html() == "") $('#events #past').html("<h3>No past events or volunteer opportunities</h3>");
 }
 
 function scroll() {
@@ -107,7 +115,9 @@ var easteregg = "";
 document.onkeyup = function(e) {
 	if(e.keyCode == 68) easteregg += "d";
 	if(e.keyCode == 83) easteregg += "s";
-	if(easteregg.substring(easteregg.length - 3).toLowerCase() == "dds") $('html').css({'transition': '2s', '-webkit-filter': 'invert(100%)', 'filter': 'invert(100%'});
+	if(easteregg.substring(easteregg.length - 3).toLowerCase() == "dds") {
+		$('html').css({'transition': '2s', '-webkit-filter': 'invert(100%)', 'filter': 'invert(100%)'});
+	}
 }
 
 $(document).ready(html);

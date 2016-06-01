@@ -184,6 +184,11 @@ html, body {
 	font-weight: 300;
 	margin: 0 0 20px 0;
 }
+#events i.material-icons {
+	color: rgb(100, 100, 100);
+	font-size: 16px;
+	padding-left: 7px;
+}
 #officers table {
 	width: 100%;
 }
