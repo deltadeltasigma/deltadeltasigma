@@ -66,7 +66,7 @@ html, body {
 }
 #footer, #footer a {
 	color: rgb(100, 100, 100);
-	font-weight: 100;
+	font-weight: 300;
 	text-decoration: none;
 }
 #footer td {
@@ -181,15 +181,19 @@ html, body {
 #events h3 {
 	text-transform: uppercase;
 	font-size: 15px;
-	font-weight: 200;
+	font-weight: 300;
 	margin: 0 0 20px 0;
 }
 #officers table {
 	width: 100%;
 }
-#officers table td {
-	width: 50%;
+#officers table td, #officers table th {
+	text-align: left;
 	vertical-align: top;
+	width: 50%;
+}
+#officers table td {
+	padding-bottom: 20px;
 }
 #officers table img {
 	width: 30%;
@@ -197,19 +201,20 @@ html, body {
 }
 #officers table h2 {
 	font-size: 32px;
-	font-weight: 400;
+	font-weight: 300;
 	margin: 0;
 }
 #officers table h3 {
 	text-transform: uppercase;
 	font-size: 15px;
-	font-weight: 200;
+	font-weight: 300;
 	margin: 0 0 20px 0;
 }
 #officers table p {
+	color: rgb(50, 50, 50);
 	padding-right: 20px;
 	margin-top: 0;
-	font-weight: 100;
+	font-weight: 300;
 }
 #officers img {
 	float: left;

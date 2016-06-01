@@ -1,11 +1,11 @@
-var html = function() {
+function html() {
 	$('#javascript').remove();
-	$('head').append('<link rel="stylesheet" href="stylesheets/main.css"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500, 700, 900" rel="stylesheet" type="text/css">');
+	$('head').append('<link rel="stylesheet" href="stylesheets/main.css"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet" type="text/css">');
 	$('#nav').html('<div class="nav"><a href="index.html"><img src="images/logo_color.png"></a><ul><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="resources.html">Resources</a></li><li class="button"><a href="join.html">Join</a></li></ul></div>');
 	$('body').append('<section id="footer"><div><table><tr class="first-row"><td><a href="index.html">Home</a></td><td><a href="about.html">About</a></td><td><a href="events.html">Events</a></td><td><a href="resources.html">Resources</a></td><td><a href="join.html">Join</a></td></tr><tr class="second-row"><td><p><a href="index.html#about">About</a></p><p><a href="index.html#events">Upcoming Events</a></p></td><td><p><a href="about.html#mission">Mission</a></p><p><a href="about.html#officers">Officers</a></p></td><td><p><a href="events.html#events">Upcoming Events</a></p><p><a href="events.html#volunteer">Volunteer Opportunities</a></p></td><td><p><a href="resources.html#uw">At the University of Washington</a></p><p><a href="resources.html#nation">Nationwide</a></p></td><td><p><a href="join.html#benefits">Benefits</a></p><p><a href="join.html#benefits">Application</a></p></td></tr></table></div></section>');
 }
 
-var imagetogif = function() {
+function imagetogif() {
 	$('.imagetogif').find('.gif').hide();
 	$('.imagetogif').hover(function() {
 		$(this).find('.image').hide();
@@ -17,7 +17,7 @@ var imagetogif = function() {
 	});
 }
 
-var popup = function() {
+function popup() {
 	$('#popup').fadeIn('slow');
 	$('#popup > div').click(function() {
 		$(this).parent().fadeOut('slow');
@@ -25,7 +25,7 @@ var popup = function() {
 	// <section id="popup"><div></div></section>
 }
 
-var mobile = function() {
+function mobile() {
 	if($(window).width() < 900 || $(window).height() < 400) {
 		$('#main .nav img').hide();
 		$('#main .nav ul').hide();
@@ -42,8 +42,78 @@ var mobile = function() {
 	console.log($(window).width() + " x " + $(window).height());
 }
 
+function events() {
+	var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	var events = [
+		// [ {EVENT_NAME} , {EVENT TYPE} ,
+		//		{DATE} , {TIME} , {LOCATION_LINK} , {LOCATION_NAME} ,
+		//		{DESCRIPTION} ];
+		["University of Washington School of Dentistry: Sue Coldwell's Admission Talk",
+			"04/27/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
+			""],
+		["Admissions Overview from Accepted Students",
+			"05/04/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
+			""],
+		["University of Pacific: Visit from Director of Admissions",
+			"05/11/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
+			""],
+		["Elections and Gold Member Recognition",
+			"05/18/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
+			""],
+	];
+	events.sort(function(a, b) {
+		if(a[1] === b[1]) return 0;
+		else return (a[1] > b[1]) ? -1 : 1;
+	});
+	for(var i = 0; i < events.length; i++) {
+		if(new Date(events[i][1]) > new Date()) {
+			$('#events #upcoming').append('<h2>' + events[i][0] + '</h2><h3>' + days[new Date(events[i][1]).getDay()] + ', ' + months[new Date(events[i][1]).getMonth()] + ' ' + new Date(events[i][1]).getDate() + ', from ' + events[i][2] + ' at <a href="' + events[i][4] + '" target="_blank">' + events[i][3] + '</a></h3>');
+			if(events[i][5] != "") $('#events #upcoming').append('<h3>' + events[i][5] + '</h3>');
+		}
+	}
+	var volunteer = [
+		// [ {EVENT_NAME} ,
+		//		{DATE} , {TIME} , {LOCATION_LINK} , {LOCATION_NAME} ,
+		//		{DESCRIPTION} ];
+		["Friday Feasts with ROOTS",
+			"04/29/2016", "4:30-7:00 PM", "1415 NE 43RD ST SEATTLE (ALLEY ENTRANCE) BY MOD PIZZA", "https://www.google.com/maps/place/1415+NE+43rd+St,+Seattle,+WA+98105/@47.6592479,-122.3145446,17z/data=!3m1!4b1!4m2!3m1!1s0x5490148b4f6b6617:0xd9007ef2253841c8",
+			""],
+		["Friday Feasts with ROOTS",
+			"05/06/2016", "4:30-7:00 PM", "1415 NE 43RD ST SEATTLE (ALLEY ENTRANCE) BY MOD PIZZA", "https://www.google.com/maps/place/1415+NE+43rd+St,+Seattle,+WA+98105/@47.6592479,-122.3145446,17z/data=!3m1!4b1!4m2!3m1!1s0x5490148b4f6b6617:0xd9007ef2253841c8",
+			""],
+		["Relay for Life Fundraiser: Molar Bearz",
+			"05/21/2016", "", "", "",
+			""],
+	];
+
+	if($('#events #upcoming').html() === "") $('#events #upcoming').html("<h3>No upcoming events</h3>");
+	if($('#events #volunteer').html() === "") $('#events #volunteer').html("<h3>No upcoming volunteer opportunities</h3>");
+}
+
+function scroll() {
+	$('a[href^="#"]').on('click',function (e) {
+		e.preventDefault();
+		var $target = $(this.hash);
+		$('html, body').stop().animate({
+			'scrollTop': $target.offset().top
+		}, 900, 'swing', function () {
+			window.location.hash = target;
+		});
+	});
+}
+
+var easteregg = "";
+document.onkeyup = function(e) {
+	if(e.keyCode == 68) easteregg += "d";
+	if(e.keyCode == 83) easteregg += "s";
+	if(easteregg.substring(easteregg.length - 3).toLowerCase() == "dds") $('html').css({'transition': '2s', '-webkit-filter': 'invert(100%)', 'filter': 'invert(100%'});
+}
+
 $(document).ready(html);
 $(document).ready(imagetogif);
 $(document).ready(popup);
+$(document).ready(scroll);
+$(document).ready(events);
 $(document).ready(mobile);
 $(window).resize(mobile);
