@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	margin: 0;
@@ -64,7 +65,8 @@ html, body {
 	background: rgb(240, 240, 240);
 	padding: 20px 10% 30px 10%;
 }
-#footer, #footer a {
+#footer,
+#footer a {
 	color: rgb(100, 100, 100);
 	font-weight: 300;
 	text-decoration: none;
@@ -83,6 +85,25 @@ html, body {
 }
 #footer tr.second-row td p {
 	margin: 0 0 5px 0;
+}
+#popup {
+	background: rgba(0, 0, 0, 0.6);
+	height: 100%;
+	position: fixed;
+	width: 100%;
+}
+#popup > div {
+	background: white;
+	height: 200px;
+	left: 0;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -100px;
+	position: fixed;
+	right: 0;
+	top: 50%;
+	width: 800px;
+	z-index: 1;
 }
 #main {
 	background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/main.png) no-repeat center center fixed;
@@ -103,7 +124,8 @@ html, body {
 	top: 50%;
 	transform: translate(-50%, -50%);
 }
-#main .title h1, #main .title h2 {
+#main .title h1,
+#main .title h2 {
 	margin: 0;
 	text-transform: uppercase;
 }
@@ -119,6 +141,7 @@ html, body {
 	line-height: 20px;
 }
 #main i.material-icons.arrow-down {
+	bottom: 30px;
 	color: white;
 	font-size: 40px;
 	left: 50%;
@@ -126,35 +149,7 @@ html, body {
 	padding: 0 50px;
 	position: absolute;
 	text-align: center;
-	bottom: 30px;
 	transform: translate(-50%, -50%);
-}
-#popup {
-	height: 100%;
-	width: 100%;
-	background: rgba(0, 0, 0, 0.6);
-	position: fixed;
-}
-#popup > div {
-	position: fixed;
-	height: 200px;
-	width: 800px;
-	right: 0;
-	left: 0;
-	margin-right: auto;
-	margin-left: auto;
-	z-index: 1;
-	background: white;
-	top: 50%;
-	margin-top: -100px;
-}
-.background {
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	height: 50%;
-	width: 100%;
 }
 .container {
 	background: white;
@@ -163,8 +158,19 @@ html, body {
 .container h1 {
 	font-size: 40px;
 	font-weight: 100;
-	/*margin: 0;*/
-	padding: 0;
+	margin: 0;
+	padding: 20px 0 20px 0;
+}
+.container h2 {
+	font-size: 24px;
+	font-weight: 400;
+	margin: 0;
+}
+.container h3 {
+	font-size: 15px;
+	font-weight: 300;
+	margin: 0 0 20px 0;
+	text-transform: uppercase;
 }
 .container a {
 	color: rgb(154, 171, 203);
@@ -173,54 +179,36 @@ html, body {
 .container a:hover {
 	text-decoration: underline;
 }
-#events h2 {
-	font-size: 24px;
-	font-weight: 400;
-	margin: 0;
-}
-#events h3 {
-	text-transform: uppercase;
-	font-size: 15px;
-	font-weight: 300;
-	margin: 0 0 20px 0;
-}
-#events i.material-icons {
+#upcoming i.material-icons,
+#volunteer i.material-icons,
+#past i.material-icons,
+#events_short i.material-icons {
 	color: rgb(100, 100, 100);
 	font-size: 16px;
 	padding-left: 7px;
 }
-#officers table {
+table#officers {
 	width: 100%;
 }
-#officers table td, #officers table th {
+table#officers td,
+table#officers th {
 	text-align: left;
 	vertical-align: top;
 	width: 50%;
 }
-#officers table td {
+table#officers td {
 	padding-bottom: 20px;
 }
-#officers table img {
-	width: 30%;
+table#officers img {
 	padding: 5px 20px 10px 0;
+	width: 30%;
 }
-#officers table h2 {
-	font-size: 32px;
-	font-weight: 300;
-	margin: 0;
-}
-#officers table h3 {
-	text-transform: uppercase;
-	font-size: 15px;
-	font-weight: 300;
-	margin: 0 0 20px 0;
-}
-#officers table p {
+table#officers p {
 	color: rgb(50, 50, 50);
+	font-weight: 300;
 	padding-right: 20px;
 	margin-top: 0;
-	font-weight: 300;
 }
-#officers img {
+table#officers img {
 	float: left;
 }

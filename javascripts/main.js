@@ -2,7 +2,7 @@ function html() {
 	$('#javascript').remove();
 	$('head').append('<link rel="stylesheet" href="stylesheets/main.css"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet" type="text/css">');
 	$('#nav').html('<div class="nav"><a href="index.html"><img src="images/logo_color.png"></a><ul><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="resources.html">Resources</a></li><li class="button"><a href="join.html">Join</a></li></ul></div>');
-	$('body').append('<section id="footer"><div><table><tr class="first-row"><td><a href="index.html">Home</a></td><td><a href="about.html">About</a></td><td><a href="events.html">Events</a></td><td><a href="resources.html">Resources</a></td><td><a href="join.html">Join</a></td></tr><tr class="second-row"><td><p><a href="index.html#about">About</a></p><p><a href="index.html#events">Upcoming Events</a></p></td><td><p><a href="about.html#mission">Mission</a></p><p><a href="about.html#officers">Officers</a></p></td><td><p><a href="events.html#events">Upcoming Events</a></p><p><a href="events.html#volunteer">Volunteer Opportunities</a></p></td><td><p><a href="resources.html#uw">At the University of Washington</a></p><p><a href="resources.html#nation">Nationwide</a></p></td><td><p><a href="join.html#benefits">Benefits</a></p><p><a href="join.html#benefits">Application</a></p></td></tr></table></div></section>');
+	$('body').append('<section id="footer"><div><table><tr class="first-row"><td><a href="index.html">Home</a></td><td><a href="about.html">About</a></td><td><a href="events.html">Events</a></td><td><a href="resources.html">Resources</a></td><td><a href="join.html">Join</a></td></tr><tr class="second-row"><td><p><a href="index.html#about">About</a></p><p><a href="index.html#events">Upcoming Events</a></p></td><td><p><a href="about.html#mission">Mission</a></p><p><a href="about.html#officers">Officers</a></p></td><td><p><a href="events.html#upcoming">Upcoming Events</a></p><p><a href="events.html#volunteer">Volunteer Opportunities</a></p><p><a href="events.html#past">Past Events</a></p></td><td><p><a href="resources.html#uw">At the University of Washington</a></p><p><a href="resources.html#nation">Nationwide</a></p></td><td><p><a href="join.html#benefits">Benefits</a></p><p><a href="join.html#benefits">Application</a></p></td></tr></table></div></section>');
 }
 
 function imagetogif() {
@@ -71,32 +71,62 @@ function events() {
 		["This Is An Open Event", "open",
 			"07/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
 			""],
+		["This Is An Open Event", "open",
+			"08/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
+			""],
 		["This Is A Closed Event", "closed",
 			"07/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
+			""],
+		["This Is A Closed Event", "closed",
+			"08/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
 			""],
 		["This Is A Volunteer Event", "volunteer",
 			"07/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
 			""],
+		["This Is A Volunteer Event", "volunteer",
+			"08/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
+			""],
 	];
-	var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-	var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	events.sort(function(a, b) {
 		if(a[2] == b[2]) return 0;
 		else return (a[2] > b[2]) ? -1 : 1;
 	});
-	for(var i = 0; i < events.length; i++) {
+	var open = false;
+	var closed = false;
+	var volunteer = false;
+	for(var i = events.length - 1; i >= 0; i--) {
 		if((events[i][1] == "open" || events[i][1] == "closed") && (new Date(events[i][2]) >= new Date() - 24 * 60 * 60 * 1000)) var section = "upcoming";
 		else if(events[i][1] == "volunteer" && (new Date(events[i][2]) >= new Date() - 24 * 60 * 60 * 1000)) var section = "volunteer";
 		else var section = "past";
+
 		if(events[i][1] == "open") var icon = "accessibility";
 		else if(events[i][1] == "closed") var icon = "lock";
 		else if(events[i][1] == "volunteer") var icon = "account_balance";
-		$('#events #' + section).append('<h2 title="This is a ' + events[i][1] + ' event">' + events[i][0] + '<i class="material-icons">' + icon + '</i>' + '</h2><h3>' + days[new Date(events[i][2]).getDay()] + ', ' + months[new Date(events[i][2]).getMonth()] + ' ' + new Date(events[i][2]).getDate() + ', from ' + events[i][3] + ' at <a href="' + events[i][5] + '" target="_blank">' + events[i][4] + '</a></h3>');
-		if(events[i][5] != "") $('#events #' + section).append('<h3>' + events[i][6] + '</h3>');
+
+		if(section == "upcoming" && events[i][1] == "open" && !open) {
+			printevent('span#events_short', events, i, icon);
+			open = true;
+		}
+		if(section == "upcoming" && events[i][1] == "closed" && !closed) {
+			printevent('span#events_short', events, i, icon);
+			closed = true;
+		}
+		if(section == "volunteer" && events[i][1] == "volunteer" && !volunteer) {
+			printevent('span#events_short', events, i, icon);
+			volunteer = true;
+		}
+		printevent('span#' + section, events, i, icon);
 	}
-	if($('#events #upcoming').html() == "") $('#events #upcoming').html("<h3>No upcoming events</h3>");
-	if($('#events #volunteer').html() == "") $('#events #volunteer').html("<h3>No upcoming volunteer opportunities</h3>");
-	if($('#events #past').html() == "") $('#events #past').html("<h3>No past events or volunteer opportunities</h3>");
+	if($('span#upcoming').html() == "") $('span#upcoming').html("<h3>No upcoming events</h3>");
+	if($('span#volunteer').html() == "") $('span#volunteer').html("<h3>No upcoming volunteer opportunities</h3>");
+	if($('span#past').html() == "") $('span#past').html("<h3>No past events or volunteer opportunities</h3>");
+}
+
+function printevent(anchor, events, i, icon) {
+	var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	$(anchor).prepend('<h2 title="This is a ' + events[i][1] + ' event">' + events[i][0] + '<i class="material-icons">' + icon + '</i>' + '</h2><h3>' + days[new Date(events[i][2]).getDay()] + ', ' + months[new Date(events[i][2]).getMonth()] + ' ' + new Date(events[i][2]).getDate() + ', from ' + events[i][3] + ' at <a href="' + events[i][5] + '" target="_blank">' + events[i][4] + '</a></h3>');
+	// if(events[i][5] != "") $('span#' + section).append('<h3>' + events[i][6] + '</h3>');
 }
 
 function scroll() {
