@@ -5,48 +5,17 @@ function html() {
 	$('body').append('<section id="footer"><div><table><tr class="first-row"><td><a href="index.html">Home</a></td><td><a href="about.html">About</a></td><td><a href="events.html">Events</a></td><td><a href="resources.html">Resources</a></td><td><a href="join.html">Join</a></td></tr><tr class="second-row"><td><p><a href="index.html#about">About</a></p><p><a href="index.html#events">Upcoming Events</a></p></td><td><p><a href="about.html#mission">Mission</a></p><p><a href="about.html#officers">Officers</a></p></td><td><p><a href="events.html#upcoming">Upcoming Events</a></p><p><a href="events.html#volunteer">Volunteer Opportunities</a></p><p><a href="events.html#past">Past Events</a></p></td><td><p><a href="resources.html#uw">At the University of Washington</a></p><p><a href="resources.html#nation">Nationwide</a></p></td><td><p><a href="join.html#benefits">Benefits</a></p><p><a href="join.html#benefits">Application</a></p></td></tr></table></div></section>');
 }
 
-function imagetogif() {
-	$('.imagetogif').find('.gif').hide();
-	$('.imagetogif').hover(function() {
-		$(this).find('.image').hide();
-		$(this).find('.gif').show();
-	},
-	function() {
-		$(this).find('.image').show();
-		$(this).find('.gif').hide();
-	});
-}
-
-function popup() {
-	$('#popup').fadeIn('slow');
-	$('#popup > div').click(function() {
-		$(this).parent().fadeOut('slow');
-	});
-	// <section id="popup"><div></div></section>
-}
-
-function mobile() {
-	if($(window).width() < 900 || $(window).height() < 400) {
-		$('#main .nav img').hide();
-		$('#main .nav ul').hide();
-		$('#main i.material-icons.arrow-down').hide();
-		$('#nav .nav img, #nav .nav .name').hide();
-		// $('#main').height(50%);
-	}
-	else {
-		$('#main .nav img').show();
-		$('#main .nav ul').show();
-		$('#main i.material-icons.arrow-down').show();
-		$('#nav .nav img, #nav .nav .name').show();
-	}
-	console.log($(window).width() + " x " + $(window).height());
-}
-
 function events() {
 	var events = [
 		// [ {EVENT_NAME} , {"open" OR "closed" OR "volunteer"} ,
-		//		{DATE} , {TIME} , {LOCATION_LINK} , {LOCATION_NAME} ,
-		//		{DESCRIPTION} ];
+		// 	{DATE} , {TIME} , {LOCATION_LINK} , {LOCATION_NAME} ,
+		// 	{DESCRIPTION} ];
+
+		// Add events below. Events will be sorted and posted in reverse chronological order (so order of events below does not matter). Events within one year prior to the current date will print in past events, and all future events will be printed in "Upcoming Events" and "Volunteer Opportunities" of events.html. Only one of each event type is printed on the home page.
+
+		// ["", "",
+		// 	"", "", "", "",
+		// 	""],
 		["University of Washington School of Dentistry: Sue Coldwell's Admission Talk", "closed",
 			"04/27/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
 			""],
@@ -69,31 +38,34 @@ function events() {
 			"05/21/2016", "", "TBD", "",
 			""],
 		["This Is An Open Event", "open",
-			"07/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
+			"07/30/2016", "5:30-6:30 PM", "Location has a link", "http://www.washington.edu/maps/#!/meb",
 			""],
 		["This Is An Open Event", "open",
 			"08/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
-			""],
+			"This is a desciption for this event. The description is optional."],
 		["This Is A Closed Event", "closed",
 			"07/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
 			""],
 		["This Is A Closed Event", "closed",
-			"08/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
-			""],
+			"08/30/2016", "5:30-6:30 PM", "Location has no link", "",
+			"This is a desciption for this event. The description is optional."],
 		["This Is A Volunteer Event", "volunteer",
 			"07/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
-			""],
+			"This is a desciption for this event. The description is optional."],
 		["This Is A Volunteer Event", "volunteer",
 			"08/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
 			""],
 	];
+
 	events.sort(function(a, b) {
 		if(a[2] == b[2]) return 0;
 		else return (a[2] > b[2]) ? -1 : 1;
 	});
+
 	var open = false;
 	var closed = false;
 	var volunteer = false;
+
 	for(var i = events.length - 1; i >= 0; i--) {
 		if((events[i][1] == "open" || events[i][1] == "closed") && (new Date(events[i][2]) >= new Date() - 24 * 60 * 60 * 1000)) var section = "upcoming";
 		else if(events[i][1] == "volunteer" && (new Date(events[i][2]) >= new Date() - 24 * 60 * 60 * 1000)) var section = "volunteer";
@@ -107,16 +79,17 @@ function events() {
 			printevent('span#events_short', events, i, icon);
 			open = true;
 		}
-		if(section == "upcoming" && events[i][1] == "closed" && !closed) {
+		else if(section == "upcoming" && events[i][1] == "closed" && !closed) {
 			printevent('span#events_short', events, i, icon);
 			closed = true;
 		}
-		if(section == "volunteer" && events[i][1] == "volunteer" && !volunteer) {
+		else if(section == "volunteer" && events[i][1] == "volunteer" && !volunteer) {
 			printevent('span#events_short', events, i, icon);
 			volunteer = true;
 		}
 		printevent('span#' + section, events, i, icon);
 	}
+	
 	if($('span#upcoming').html() == "") $('span#upcoming').html("<h3>No upcoming events</h3>");
 	if($('span#volunteer').html() == "") $('span#volunteer').html("<h3>No upcoming volunteer opportunities</h3>");
 	if($('span#past').html() == "") $('span#past').html("<h3>No past events or volunteer opportunities</h3>");
@@ -125,8 +98,28 @@ function events() {
 function printevent(anchor, events, i, icon) {
 	var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-	$(anchor).prepend('<h2 title="This is a ' + events[i][1] + ' event">' + events[i][0] + '<i class="material-icons">' + icon + '</i>' + '</h2><h3>' + days[new Date(events[i][2]).getDay()] + ', ' + months[new Date(events[i][2]).getMonth()] + ' ' + new Date(events[i][2]).getDate() + ', from ' + events[i][3] + ' at <a href="' + events[i][5] + '" target="_blank">' + events[i][4] + '</a></h3>');
-	// if(events[i][5] != "") $('span#' + section).append('<h3>' + events[i][6] + '</h3>');
+
+	if(events[i][1] == "open") events[i][1] = "n " + events[i][1];
+	else events[i][1] = " " + events[i][1]
+	
+	var printevent = '<h2 title="This is a' + events[i][1] + ' event">' + events[i][0] + '<i class="material-icons">' + icon + '</i>' + '</h2><h3>' + days[new Date(events[i][2]).getDay()] + ', ' + months[new Date(events[i][2]).getMonth()] + ' ' + new Date(events[i][2]).getDate() + ', from ' + events[i][3] + ' at ';
+	if(events[i][5] != "") printevent += '<a href="' + events[i][5] + '" target="_blank">' + events[i][4] + '</a></h3>';
+	else printevent += events[i][4] + '</h3>';
+	if(events[i][6] != "" && anchor != "span#events_short") printevent += '<p style="color: rgb(100, 100, 100); font-size: 14px; padding-left: 40px;">' + events[i][6] + '</p>';
+	
+	$(anchor).prepend(printevent);
+}
+
+function imagetogif() {
+	$('.imagetogif').find('.gif').hide();
+	$('.imagetogif').hover(function() {
+		$(this).find('.image').hide();
+		$(this).find('.gif').show();
+	},
+	function() {
+		$(this).find('.image').show();
+		$(this).find('.gif').hide();
+	});
 }
 
 function scroll() {
@@ -141,6 +134,23 @@ function scroll() {
 	});
 }
 
+function mobile() {
+	if($(window).width() < 900 || $(window).height() < 400) {
+		$('#main .nav img').hide();
+		$('#main .nav ul').hide();
+		$('#main i.material-icons.arrow-down').hide();
+		$('#nav .nav img, #nav .nav .name').hide();
+		// $('#main').height(50%);
+	}
+	else {
+		$('#main .nav img').show();
+		$('#main .nav ul').show();
+		$('#main i.material-icons.arrow-down').show();
+		$('#nav .nav img, #nav .nav .name').show();
+	}
+	console.log($(window).width() + " x " + $(window).height());
+}
+
 var easteregg = "";
 document.onkeyup = function(e) {
 	if(e.keyCode == 68) easteregg += "d";
@@ -151,9 +161,8 @@ document.onkeyup = function(e) {
 }
 
 $(document).ready(html);
-$(document).ready(imagetogif);
-$(document).ready(popup);
-$(document).ready(scroll);
 $(document).ready(events);
+$(document).ready(imagetogif);
+$(document).ready(scroll);
 $(document).ready(mobile);
 $(window).resize(mobile);
