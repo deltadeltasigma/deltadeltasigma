@@ -141,12 +141,14 @@ function mobile() {
 		$('#main i.material-icons.arrow-down').hide();
 		$('#nav .nav img, #nav .nav .name').hide();
 		// $('#main').height(50%);
+		$('.nav, .container, #footer > div').css({'padding-left': '5%', 'padding-right': '5%'});
 	}
 	else {
 		$('#main .nav img').show();
 		$('#main .nav ul').show();
 		$('#main i.material-icons.arrow-down').show();
 		$('#nav .nav img, #nav .nav .name').show();
+		$('.nav, .container, #footer > div').css({'padding-left': '10%', 'padding-right': '10%'});
 	}
 	console.log($(window).width() + " x " + $(window).height());
 }
