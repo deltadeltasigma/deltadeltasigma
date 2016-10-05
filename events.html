@@ -1,20 +1,21 @@
 <head>
 	<title>Events | Delta Delta Sigma</title>
-	<script src="javascripts/jquery.min.js"></script>
-	<script src="javascripts/main.js"></script>
+	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="javascripts/main.js"></script>
 	<section id="javascript">If this message appears after reloading, your browser may not have JavaScript enabled.</section>
 </head>
 <body>
 	<section id="nav"></section>
-	<section>
-		<div class="container">
-			<h1 id="upcoming">Upcoming Events</h1>
-			<span id="upcoming"></span>
-			<h1 id="volunteer">Volunteer Opportunities</h1>
-			<span id="volunteer"></span>
-			<h1 id="past">Past Events & Volunteer Opportunities</h1>
-			<span id="past" style="display: none"></span>
-			<h3><a href="javascript: $('span#past').css('display', 'block'); $('#show').hide();" id="show">Click here to display events and volunteer opportunities from the past year</a></h3>
-		</div>
+	<section class="container">
+		<h1 id="upcoming">Upcoming Events</h1>
+		<span id="upcoming"></span>
+
+		<h1 id="volunteer">Volunteer Opportunities</h1>
+		<span id="volunteer"></span>
+
+		<h1 id="past">Past Events & Volunteer Opportunities</h1>
+		<span id="past" style="display: none"></span>
+		
+		<h3><a href="javascript: $('span#past').css('display', 'block'); $('#show').hide();" id="show">Click here to display events and volunteer opportunities from the past year</a></h3>
 	</section>
 </body>

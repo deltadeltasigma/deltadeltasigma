@@ -56,7 +56,6 @@ body {
 }
 #nav > .nav > ul > li > a {
 	color: rgb(100, 100, 100);
-	/*color: rgb(154, 171, 203);*/
 }
 #nav > .nav > ul > li.button > a {
 	color: white;

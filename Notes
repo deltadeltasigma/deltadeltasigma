@@ -1,0 +1,45 @@
+branding--email and ppt
+new site features--bios?
+
+
+link site to facebook, instagram
+
+uw net id needed on membership application
+
+ugm
+jumpstart
+packing parties WOHF
+relay for life
+roots
+medical teams international
+
+if i wasn't a dentist i i would be a
+
+
+
+
+transfering files (or vice versa):
+	scp dental@vergil.u.washington.edu:____ ./Documents/Github/current_dds
+
+transfering directories (or vice versa)
+	scp -r dental@vergil.u.washington.edu ./Documents/Github/current_dds
+
+bring up manual
+	man scp
+
+leave file reading
+	q
+
+remove directory/file
+	rm -rf
+
+exit ssh
+	exit
+
+go to home directory
+	cd ~
+
+get current directory
+	pwd
+
+rsync

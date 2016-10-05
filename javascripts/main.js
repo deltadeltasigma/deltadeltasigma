@@ -37,24 +37,28 @@ function events() {
 		["Relay for Life Fundraiser: Molar Bearz", "volunteer",
 			"05/21/2016", "", "TBD", "",
 			""],
-		["This Is An Open Event", "open",
-			"07/30/2016", "5:30-6:30 PM", "Location has a link", "http://www.washington.edu/maps/#!/meb",
-			""],
-		["This Is An Open Event", "open",
-			"08/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
-			"This is a desciption for this event. The description is optional."],
-		["This Is A Closed Event", "closed",
-			"07/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
-			""],
-		["This Is A Closed Event", "closed",
-			"08/30/2016", "5:30-6:30 PM", "Location has no link", "",
-			"This is a desciption for this event. The description is optional."],
-		["This Is A Volunteer Event", "volunteer",
-			"07/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
-			"This is a desciption for this event. The description is optional."],
-		["This Is A Volunteer Event", "volunteer",
-			"08/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
-			""],
+		["Fall Quarter General Meeting", "open",
+			"10/05/2016", "5:30-6:30 PM", "THO 134", "http://www.washington.edu/maps/#!/tho",
+			"Come find out about the University of Washington's pre-dental club, Delta Delta Sigma!"],
+
+		// ["This Is An Open Event", "open",
+		// 	"07/30/2016", "5:30-6:30 PM", "Location has a link", "http://www.washington.edu/maps/#!/meb",
+		// 	""],
+		// ["This Is An Open Event", "open",
+		// 	"08/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
+		// 	"This is a desciption for this event. The description is optional."],
+		// ["This Is A Closed Event", "closed",
+		// 	"07/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
+		// 	""],
+		// ["This Is A Closed Event", "closed",
+		// 	"08/30/2016", "5:30-6:30 PM", "Location has no link", "",
+		// 	"This is a desciption for this event. The description is optional."],
+		// ["This Is A Volunteer Event", "volunteer",
+		// 	"07/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
+		// 	"This is a desciption for this event. The description is optional."],
+		// ["This Is A Volunteer Event", "volunteer",
+		// 	"08/30/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
+		// 	""],
 	];
 
 	events.sort(function(a, b) {
@@ -105,7 +109,7 @@ function printevent(anchor, events, i, icon) {
 	var printevent = '<h2 title="This is a' + events[i][1] + ' event">' + events[i][0] + '<i class="material-icons">' + icon + '</i>' + '</h2><h3>' + days[new Date(events[i][2]).getDay()] + ', ' + months[new Date(events[i][2]).getMonth()] + ' ' + new Date(events[i][2]).getDate() + ', from ' + events[i][3] + ' at ';
 	if(events[i][5] != "") printevent += '<a href="' + events[i][5] + '" target="_blank">' + events[i][4] + '</a></h3>';
 	else printevent += events[i][4] + '</h3>';
-	if(events[i][6] != "" && anchor != "span#events_short") printevent += '<p style="color: rgb(100, 100, 100); font-size: 14px; padding-left: 40px;">' + events[i][6] + '</p>';
+	if(events[i][6] != "" && anchor != "span#events_short") printevent += '<p style="color: rgb(150, 150, 150); font-size: 14px; padding-left: 30px; margin-top: -10px">' + events[i][6] + '</p>';
 	
 	$(anchor).prepend(printevent);
 }
