@@ -1,0 +1,79 @@
+<textarea name="paragraph_text" cols="50" rows="10"></textarea>
+<table onClick="this.select();">
+	<tr>
+		<td class="email-background">
+			<div class="email-container">
+				<div class="email-header">
+					<img src="http://i.imgur.com/dgajLS5.png">
+				</div>	
+				<div class="email-body">
+					<span class="email-text"></span>
+					<div class="email-footer">
+						Delta Delta Sigma at the University of Washington is a Registered Student Organization with the mission of introducing students to the dental profession and providing a helpful environment for success in their pre-dental academics.
+					</div>
+				</div>
+			</div>
+		</td>
+	</tr>
+</table>
+
+<style type="text/css">
+	textarea {
+		width: 100%;
+	}
+	.email-background {
+		width: 100%;
+		height: 100%;
+		background: #eeeeee;
+		padding: 20px;
+	}
+	.email-container {
+		max-width: 600px;
+		background: white;
+		font-family: sans-serif, Arial;
+		font-weight: 100;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+	.email-header img {
+		max-width: 100%;
+	}
+	.email-body {
+		padding: 20px 50px 20px 50px;
+	}
+	.email-body p,
+	.email-text {
+		font-size: 14px;
+	}
+	.email-body h1 {
+		font-size: 18px;
+		text-transform: uppercase;
+	}
+	.email-body p,
+	.email-body h1,
+	.email-text {
+		margin: 0;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	.email-body-box {
+		border: solid grey 1px;
+		padding: 0px 15px 0px 15px;
+	}
+	.email-footer {
+		margin-top: 30px;
+		font-size: 10px;
+		color: #aaaaaa;
+	}
+</style>
+
+<script type="text/javascript" src="../javascripts/jquery.min.js"></script>
+<script type="text/javascript">
+	$('textarea').keyup(function() {
+		$('.email-text').html('');
+		var lines = $('textarea').val().split('\n');
+		for(var i = 0; i < lines.length; i++){
+		    $('.email-text').append('<p>' + lines[i] + '</p>');
+		}
+	});
+</script>

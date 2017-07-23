@@ -1,0 +1,7 @@
+#
+# UWIN Resources (See Documentation)
+#
+$confirm = on
+$describe = on
+$format = brief
+$welcome = on

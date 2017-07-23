@@ -1,0 +1,92 @@
+body { color: #000000 ; font-family: Times New Roman, sans-serif ;  background-color: #660099  }
+
+
+	#l  { color: #FFFFFF ; background-color: #FFCC00 ; font-size: 18px; float: left ;
+
+ 		width: 25% ; height: 1200px ; overflow: visible  }
+
+	div.lpadding  {padding: 30px 20px 20px 20px }
+
+
+	#content  {background-color:#FFFF66;  text-align: justify; line-height: 20pt; float: right ;   
+
+	width: 75%;  overflow: visible }
+
+	
+	#contento  {background-color:#FFFF66;  text-align: justify; line-height: 20pt; float: right ;   
+
+	width: 70%;  overflow: visible }
+
+
+	#contento1  { font-size: 14px; background-color:#FFFF66;  text-align: justify; line-height: 18pt; float: right ;   
+
+	width: 70%;  overflow: visible }
+
+
+	div.contentpadding  {padding: 0px 30px 30px 30px }
+
+	div.contentpaddingo  {padding: 0px 30px 30px 30px }
+
+	
+	#content2  {background-color:#FFFF66; text-align: justify; line-height: 20pt; float: right ; clear: both; 
+
+	width: 75%;  overflow: visible }
+
+	
+	div.content2padding  {padding: 50px 30px 30px 30px }
+
+
+	#logo  {  color: black; background-color:#FFFF66;  font-size:  45px;  font-weight: bold; 
+
+	 font-variant: small-caps; text-align: center; letter-spacing:  5px ;  float: right ;
+
+	 width: 75% ; height:400px ;  overflow: visible   }
+
+
+	#logoh  {  color: black; background-color:#FFFF66;  font-size:  45px;  font-weight: bold; 
+
+	 font-variant: small-caps; text-align: center; letter-spacing:  5px ;  float: right ;
+
+	 width: 75% ; height:450px ;  overflow: visible   }div.logopadding  {padding: 30px }
+
+
+	#altl  { background-color:  #FFFFFF; float: left ; width: 140px; height: 80px ; 
+
+	clear: both }
+
+
+	div.altlpadding  {padding:  0px 30px 0px 30px }
+
+
+	#square  {   background-color:#000000 ; width: 160px;  height: 100px }
+
+
+	div.squarepadding  {padding: 10px 10px 10px 10px  }
+
+
+	#cen  { background-color:#000000 ; width: 100px ; height: 100px ;  padding: 20px 20px 20px 20px}
+
+
+	div.cenpadding  {padding: 20px 20px 20px 20px }
+
+
+	div.container  { background-color: #FFFF66; width: 900px; height: 1200px ; margin-left: 80px ; overflow: visible }
+	
+	
+	div.officers { background-color: #FFFF66 ; width: 100%;  overflow: visible;  float: right}
+
+	#officerpadding  {padding: 15px 15px 15px 15px}
+
+
+	div.pic   {background-color: #FFFF66; width: 200px; height: 250px; float: left}
+
+
+	a:link { color: #cc66FF; text-decoration: none }
+
+	a:active { color: #CC66FF ; text-decoration: none }
+
+	a:hover  { color: #660099 ; text-decoration: none }
+
+	a:visited { color: #660099 ; text-decoration: none }
+
+	h6  {font-size: 14; font-variant: small-caps }

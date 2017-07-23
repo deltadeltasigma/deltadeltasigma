@@ -1,0 +1,74 @@
+body { color: black ; font-family: verdana, sans-serif ;  background-color: #6666FF ;  }
+
+
+	#l  { color: #FF6666 ; background-color: #666666 ; font-size: 18px; float: left ;
+
+ 		width: 25% ; height: 1200px ; overflow: visible  }
+
+	div.lpadding  {padding: 30px 20px 20px 20px }
+
+
+	#content  {background-color:  white;  line-height: 20pt; float: right ;   
+
+	width: 70%; height: 800px ; overflow: visible }
+
+	
+	div.contentpadding  {padding: 0px 30px 30px 30px }
+
+	
+	#content2  {background-color:  white; line-height: 20pt; float: right ; clear: both; 
+
+	width: 70%; height:  800px; overflow: visible }
+
+	
+	div.content2padding  {padding: 50px 30px 30px 30px }
+
+
+	#logo  {  color: black; background-color:  white;  font-size:  45px;  font-weight: bold; 
+
+	 font-variant: small-caps; text-align: center; letter-spacing:  5px ;    float: right ;
+
+	 width: 70% ; height:400px ;  overflow: visible   }
+
+
+	div.logopadding  {padding: 30px }
+
+
+	#altl  { background-color:  #FF6666; float: left ; width: 140px; height: 80px ; 
+
+	clear: both }
+
+
+	div.altlpadding  {padding:  0px 30px 0px 30px }
+
+
+	#square  {   background-color: silver ; width: 160px;  height: 100px }
+
+
+	div.squarepadding  {padding: 10px 10px 10px 10px  }
+
+
+	#cen  { background-color: silver ; width: 100px ; height: 100px ;  padding: 20px 20px 20px 20px}
+
+
+	div.cenpadding  {padding: 20px 20px 20px 20px }
+
+
+	div.container  { background-color: #FFFFCC; width: 900px; height: 1200px ; margin-left: 80px ; overflow: visible }
+	
+	div.container2  {background-color: 
+
+	div.officers  { background-color: #FFFFCC ; width: 100%; height: 100%; overflow: visible; float: right}
+
+	#officerpadding  {padding: 15px 15px 15px 15px}
+
+	div.pic   {background-color: white; width: 200px; height: 250px; float: left}
+
+
+	a:link { color: #FF6666; text-decoration: none }
+
+	a:active { color: #6666FF ; text-decoration: none }
+
+	a:hover  { color: #6666FF ; text-decoration: none }
+
+	a:visited { color: #6666FF ; text-decoration: none }

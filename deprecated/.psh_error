@@ -1,0 +1,12 @@
+err -1
+terminal data base is losttcsetpgrp: Invalid argument
+Icon: tconfig: tcgetattr() error
+Icon: tconfig: tcgetattr() error
+Icon: tconfig: tcgetattr() error
+... during session ending at Wed Sep 29 21:48:10 2010
+err -1
+terminal data base is losttcsetpgrp: Invalid argument
+Icon: tconfig: tcgetattr() error
+Icon: tconfig: tcgetattr() error
+Icon: tconfig: tcgetattr() error
+... during session ending at Fri Feb 11 15:29:11 2011

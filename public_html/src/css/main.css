@@ -1,0 +1,217 @@
+html,
+body {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	margin: 0;
+	overflow-x: hidden;
+	padding: 0;
+}
+::-moz-selection {
+	background: #efefef;
+}
+::selection {
+	background: #efefef;
+}
+#javascript {
+	background: yellow;
+	padding: 10px 10%;
+	text-align: center;
+}
+.nav {
+	text-transform: uppercase;
+	padding: 20 10%;
+}
+.nav > ul {
+	float: right;
+	padding: 10px 0;
+	vertical-align: middle;
+}
+.nav > ul > li {
+	float: left;
+	list-style: none;
+	margin-left: 6px;
+}
+.nav > ul > li > a {
+	color: white;
+	padding: 10px 20px;
+	text-decoration: none;
+	transition: color 0.3s;
+}
+.nav > ul > li:not(.button) > a:hover {
+	color: rgba(255, 255, 255, 0.7);
+}
+.nav > ul > li.button > a {
+	background: #9AABCB;
+	border-radius: 20px;
+	margin-left: 10px;
+	transition: background 0.3s;
+}
+.nav > ul > li.button:hover > a {
+	background: rgba(154, 171, 203, 0.7);
+}
+#nav > .nav {
+	background: rgb(240, 240, 240);
+	height: 60px;
+}
+#nav > .nav img {
+	max-height: 40px;
+	padding: 10px 0px;
+	vertical-align: middle;
+	width: auto;
+}
+#nav > .nav > ul {
+	padding: 2.5px 0;
+}
+#nav > .nav > ul > li > a {
+	color: rgb(100, 100, 100);
+}
+#nav > .nav > ul > li.button > a {
+	color: white;
+}
+#footer > div {
+	background: rgb(240, 240, 240);
+	padding: 20px 10% 30px 10%;
+}
+#footer,
+#footer a {
+	color: rgb(100, 100, 100);
+	font-weight: 300;
+	text-decoration: none;
+}
+#footer td {
+	padding-right: 70px;
+	vertical-align: top;
+}
+#footer tr.first-row td {
+	font-size: 20px;
+	padding-bottom: 15px;
+}
+#footer tr.second-row td {
+	font-size: 14px;
+	line-height: 16px;
+}
+#footer tr.second-row td p {
+	margin: 0 0 5px 0;
+}
+#main {
+	background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/main.png) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+}
+#main .title {
+	color: white;
+	left: 50%;
+	margin-right: -50%;
+	padding: 0 50px;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+#main .title h1,
+#main .title h2 {
+	margin: 0;
+	text-transform: uppercase;
+}
+#main .title h1 {
+	font-size: 80px;
+	font-weight: 100;
+	line-height: 80px;
+	padding-bottom: 20px;
+}
+#main .title h2 {
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 20px;
+}
+#main i.material-icons.arrow-down {
+	bottom: 30px;
+	color: white;
+	font-size: 40px;
+	left: 50%;
+	margin-right: -50%;
+	padding: 0 50px;
+	position: absolute;
+	text-align: center;
+	transform: translate(-50%, -50%);
+}
+.container {
+	background: white;
+	padding: 20px 10% 40px 10%;
+}
+.container h1 {
+	font-size: 40px;
+	font-weight: 100;
+	margin: 0;
+	padding: 20px 0 25px 0;
+}
+.container h2 {
+	font-size: 24px;
+	font-weight: 400;
+	margin: 0;
+}
+.container h3 {
+	font-size: 15px;
+	font-weight: 300;
+	margin: 0 0 20px 0;
+	text-transform: uppercase;
+}
+.container p {
+	margin-top: 0;
+}
+.container a {
+	color: rgb(154, 171, 203);
+	text-decoration: none;
+}
+.container a:hover {
+	text-decoration: underline;
+}
+.container ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.container li {
+	padding-bottom: 10px;
+}
+#upcoming i.material-icons,
+#volunteer i.material-icons,
+#past i.material-icons,
+#events_short i.material-icons {
+	color: rgb(100, 100, 100);
+	font-size: 16px;
+	padding-left: 7px;
+}
+table#officers {
+	width: 100%;
+}
+table#officers td,
+table#officers th {
+	text-align: left;
+	vertical-align: top;
+	width: 50%;
+}
+table#officers td {
+	padding-bottom: 20px;
+}
+table#officers img {
+	padding: 5px 20px 10px 0;
+	width: 30%;
+}
+#officers .imagetogif {
+	height: 100px;
+	overflow: hidden;
+}
+table#officers p {
+	color: rgb(50, 50, 50);
+	font-weight: 300;
+	padding-right: 20px;
+	margin-top: 0;
+}
+table#officers img {
+	float: left;
+}
