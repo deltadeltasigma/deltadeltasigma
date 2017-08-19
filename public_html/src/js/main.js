@@ -2,6 +2,7 @@ function html() {
 	$('#javascript').remove();
 	$('head').append('<link rel="stylesheet" href="src/css/main.css"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet" type="text/css">');
 	$('#nav').html('<div class="nav"><a href="index.html"><img src="src/img/logo/color.png"></a><ul><li><a href="about.html">About</a></li><li><a href="officers.html">Officers</a></li><li><a href="events.html">Events</a></li><!--<li><a href="resources.html">Resources</a></li>--><li class="button"><a href="join.html">Join</a></li></ul></div>');
+	$('body').wrapInner('<div class="content"></div>');
 	$('body').append('<section id="footer"><div><table><tr class="first-row"><td><a href="index.html">Home</a></td><td><a href="about.html">About</a></td><td><a href="events.html">Events</a></td><!--<td><a href="resources.html">Resources</a></td>--><td><a href="join.html">Join</a></td></tr><tr class="second-row"><td><p><a href="index.html#about">About</a></p><p><a href="index.html#events">Upcoming Events</a></p></td><td><p><a href="about.html#mission">Mission</a></p><p><a href="officers.html">Officers</a></p></td><td><p><a href="events.html#upcoming">Upcoming Events</a></p><p><a href="events.html#volunteer">Volunteer Opportunities</a></p><p><a href="events.html#past">Past Events</a></p></td><!--<td><p><a href="resources.html#uw">At the University of Washington</a></p><p><a href="resources.html#nation">Nationwide</a></p></td>--><td><p><a href="join.html#benefits">Benefits</a></p><p><a href="join.html#benefits">Application</a></p></td></tr></table></div></section>');
 }
 
@@ -9,13 +10,10 @@ function events() {
 	var events = [
 		// [ {EVENT_NAME} , {"open" OR "closed" OR "volunteer"} ,
 		// 	{DATE} , {TIME} , {LOCATION_LINK} , {LOCATION_NAME} ,
-		// 	{DESCRIPTION} ];
+		// 	{DESCRIPTION} ],
 
-		// Add events below. Upcoming events will be sorted and posted in chronological order (so order of events below does not matter). Events within one year prior to the current date will print in past events, and all future events will be printed in "Upcoming Events" and "Volunteer Opportunities" of events.html. Only one of each event type is printed on the home page.
+		// Append new events below. Upcoming events will be sorted and posted in chronological order (so order of events below does not matter). Events within one year prior to the current date will print in past events, and all future events will be printed in "Upcoming Events" and "Volunteer Opportunities" of events.html. Only one of each event type is printed on the home page.
 
-		// ["", "",
-		// 	"", "", "", "",
-		// 	""],
 		["University of Washington School of Dentistry: Sue Coldwell's Admission Talk", "closed",
 			"04/27/2016", "5:30-6:30 PM", "MEB 246", "http://www.washington.edu/maps/#!/meb",
 			""],
@@ -133,6 +131,10 @@ function events() {
 		["Gold Member Recognition and Elections", "closed",
 			"05/24/2017", "5:30-6:30 PM", "DEN 111", "http://www.washington.edu/maps/#!/den",
 			"We did it! Last meeting of the year! Of course we'll have food!"],
+
+		// ["", "",
+		// 	"", "", "", "",
+		// 	""],
 	];
 
 	events.sort(function(a, b) {

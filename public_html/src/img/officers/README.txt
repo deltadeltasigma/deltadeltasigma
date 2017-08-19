@@ -1,0 +1,1 @@
+Overwriting or deleting files here will cause missing images! If a duplicate is expected, append a number to the filename to avoid overwriting.

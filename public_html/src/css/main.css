@@ -17,6 +17,9 @@ body {
 	padding: 10px 10%;
 	text-align: center;
 }
+div.content {
+	min-height: calc(100% - 163px);
+}
 .nav {
 	text-transform: uppercase;
 	padding: 20 10%;
