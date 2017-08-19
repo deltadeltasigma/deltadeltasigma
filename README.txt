@@ -11,6 +11,7 @@ At the beginning of each year, you will want to update public_html/officers.html
 2. For your newly renamed file: Remove or comment out the "Past Officers" section at the bottom, update page title to "Past Officers YEAR" (e.g. "Past Officers 2018").
 3. Add a link to your newly renamed file on the officers.html file under "Past Officers" following previous years as examples.
 4. Use your new officers' info to replace entries in officers.html.
+5. Put officer photos in public_html/src/img/officers. Avoid overwriting existing images.
 
 UPDATING EVENTS
 
